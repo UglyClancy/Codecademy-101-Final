@@ -20,9 +20,22 @@ while counter > 0:
 # print(dealers_hand)
 
 fullp_hand = [card for hand in players_hand for card in hand]
-# print(full_hand)
+# print(fullp_hand)
 print('You\'ve been dealt the ' + fullp_hand[0] + ' and the ' + fullp_hand[2])
 
 fulld_hand = [card for hand in dealers_hand for card in hand]
 # print(fulld_hand)
 print('You\'re playing against ' + fulld_hand[0])
+
+print('Would you like to hit or stay: ')
+
+hit_or_stay = input()
+
+if hit_or_stay == 'hit':
+    players_hand.append(deck.pop(random.randrange(len(deck))))
+    print(players_hand)
+elif hit_or_stay == 'stay':
+    print(fullp_hand)
+
+# Next figure out value count and functions to calculate against dealer etc.
+# cardp_value = fullp_hand[1] + fullp_hand[3]
