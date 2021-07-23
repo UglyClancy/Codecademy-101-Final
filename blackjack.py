@@ -28,14 +28,23 @@ fulld_hand = [card for hand in dealers_hand for card in hand]
 print('You\'re playing against ' + fulld_hand[0])
 
 print('Would you like to hit or stay: ')
+# hit_or_stay = input()
+counter2 = 3
+while counter2 > 0:
+    hit_or_stay = input()
+    if hit_or_stay == 'hit':
+        players_hand.append(deck.pop(random.randrange(len(deck))))
+        print(players_hand)
+        print('Would you like to hit or stay: ') 
+        counter2 -= 1
+    elif hit_or_stay == 'stay':
+        break
 
-hit_or_stay = input()
+fullp_hand = [card for hand in players_hand for card in hand]
 
-if hit_or_stay == 'hit':
-    players_hand.append(deck.pop(random.randrange(len(deck))))
-    print(players_hand)
-elif hit_or_stay == 'stay':
-    print(fullp_hand)
+for cards in fullp_hand:
+    if(type(cards) == str):
+        print('Your hand consists of: ' + cards)
 
 # Next figure out value count and functions to calculate against dealer etc.
 # cardp_value = fullp_hand[1] + fullp_hand[3]
