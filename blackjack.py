@@ -109,7 +109,7 @@ if 'ace' in str(fulld_hand):
     else:
         dealer_points += 1
 
-if len(fullp_hand) == 5:
+if len(players_hand) == 5:
     print('We got a five card Charlie in the house! Congrats you beat the dealer!')
 elif player_points2 == 21 and player_points2 > dealer_points:
     print('Blackjack! You win!')
