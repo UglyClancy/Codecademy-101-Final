@@ -1,7 +1,19 @@
+print('BBBB    L        A     CCC  K   K  JJJJJ    A     CCC  K   K')
+print('BB  BB  L       A A   C     K  K     J     A A   C     K  K')
+print('BB  BB  L      A   A  C     K K      J    A   A  C     K K')
+print('BBBB    L      AAAAA  C     KK       J    AAAAA  C     KK')
+print('BB  BB  L      A   A  C     K K    J J    A   A  C     K K') 
+print('BB  BB  L      A   A  C     K  K   J J    A   A  C     K  K')
+print('BBBB    LLLLL  A   A   CCC  K   K   JJ    A   A   CCC  K   K')
+
+print('*' * len('BBBB    LLLLL  A   A   CCC  K   K   JJ    A   A   CCC  K   K'))
+print('\v')
 
 print('Type your name to start: ')
 player_name = input()
 print('Welcome to Terminal Blackjack ' + player_name + '!')
+print('*' * len('Welcome to Terminal Blackjack ' + player_name + '!'))
+print('\v')
 
 dealers_hand = []
 players_hand = []
@@ -9,6 +21,7 @@ deck = [['king of hearts', 10], ['king of diamonds', 10], ['king of spades', 10]
 # deck = ['king of hearts', 'king of diamonds', 'king of spades', 'king of clubs', 'queen of hearts', 'queen of diamonds', 'queen of spades', 'queen of clubs', 'jack of hearts', 'jack of diamonds', 'jack of spades', 'jack of clubs', 'nine of hearts', 'nine of diamonds', 'nine of spades', 'nine of clubs', 'eight of hearts', 'eight of diamonds', 'eight of spades', 'eight of clubs', 'seven of hearts', 'seven of diamonds', 'seven of spades', 'seven of clubs', 'six of hearts', 'six of diamonds', 'six of spades', 'six of clubs', 'five of hearts', 'five of diamonds', 'five of spades', 'five of clubs', 'four of hearts', 'four of diamonds', 'four of spades', 'four of clubs', 'three of hearts', 'three of diamonds', 'three of spades', 'three of clubs', 'two of hearts', 'two of diamonds', 'two of spades', 'two of clubs', 'ace of hearts', 'ace of diamonds', 'ace of spades', 'ace of clubs']
 
 print('The cards are being dealt....')
+print('\v')
 
 # OG Fucntion
 import random
@@ -23,10 +36,12 @@ while counter > 0:
 fullp_hand = [card for hand in players_hand for card in hand]
 # print(fullp_hand)
 print('You\'ve been dealt the ' + fullp_hand[0] + ' and the ' + fullp_hand[2])
+print('\v')
 
 fulld_hand = [card for hand in dealers_hand for card in hand]
 # print(fulld_hand)
 print('You\'re playing against ' + fulld_hand[0])
+print('\v')
 
 print('Would you like to hit or stay: ')
 # hit_or_stay = input()
@@ -36,6 +51,7 @@ while counter2 > 0:
     if hit_or_stay == 'hit':
         players_hand.append(deck.pop(random.randrange(len(deck))))
         print(players_hand)
+        print('\v')
         print('Would you like to hit or stay: ') 
         fullp_hand = [card for hand in players_hand for card in hand]
         player_points1 = 0
@@ -45,8 +61,10 @@ while counter2 > 0:
         counter2 -= 1
         if player_points1 > 21:
             print('Oh no you went over!')
+            print('\v')
             break
     elif hit_or_stay == 'stay':
+        print('\v')
         break
 
 fullp_hand = [card for hand in players_hand for card in hand]
@@ -55,11 +73,15 @@ print('Your hand consists of: ')
 for cards in fullp_hand:
     if(type(cards) == str):
         print(cards)
+        
+print('\v')
 
 print('The dealer has: ')
 for cards in fulld_hand:
     if(type(cards) == str):
         print(cards)
+
+print('\v')
 
 player_points2 = 0
 for cards in fullp_hand:
@@ -87,7 +109,9 @@ if 'ace' in str(fulld_hand):
     else:
         dealer_points += 1
 
-if player_points2 == 21 and player_points2 > dealer_points:
+if len(fullp_hand) == 5:
+    print('We got a five card Charlie in the house! Congrats you beat the dealer!')
+elif player_points2 == 21 and player_points2 > dealer_points:
     print('Blackjack! You win!')
 elif player_points2 > dealer_points and player_points2 <= 21:
     print('You beat the dealer! We have a winner!')
